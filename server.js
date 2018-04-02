@@ -21,3 +21,4 @@ mongoose.connection.once('open', () => {
 app.listen(3000, () => {
     console.log('Terminal is listening');
 })
+
