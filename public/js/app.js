@@ -88,6 +88,18 @@ app.controller('sessionController', ['$http', function($http){
         }, error => {
             console.error(error)
         }).catch(err => console.error('Catch ', err))
+    } // end createSession()
+
+    this.deleteSession = () =>{
+        $http({
+            method: 'DELETE',
+            url: '/sessions/destroy-route'
+        }).then( (res)=>{
+            console.log(res);
+            console.log('LOGGED OUT');
+        }, error => {
+            console.error(error)
+        }).catch(err => console.error('Catch ', err))
     }
 
 }])

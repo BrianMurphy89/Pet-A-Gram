@@ -31,5 +31,15 @@ router.post('/signup' , (req,res) => {
     })
 })
 
+router.delete('/destroy-route', (req,res)=>{
+    console.log(req.session.currentuser);
+    req.session.destroy( function(){
+        res.status(200).json({
+            status:200,
+            message:'logout complete'
+        })
+        })
+    })
+
 
 module.exports = router;
