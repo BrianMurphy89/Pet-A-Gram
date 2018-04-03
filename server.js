@@ -1,10 +1,16 @@
 const express = require('express');
 const app = express();
 const mongoose = require('mongoose');
+const session = require('express-session')
 
 app.use(express.urlencoded({extended:false}));
 app.use(express.static('public'));
 app.use(express.json());
+app.use(session({
+    secret:'feedmeseymour',
+    resave:false,
+    saveUninitialized:false
+}))
 
 const petController = require('./controllers/pet-controller.js');
 app.use('/pet-a-gram', petController);
@@ -21,4 +27,3 @@ mongoose.connection.once('open', () => {
 app.listen(3000, () => {
     console.log('Terminal is listening');
 })
-

@@ -1,4 +1,4 @@
-const app = angular.module('petApp', []);
+const app = angular.module('petApp', ['ngRoute']);
 
 
 app.controller('mainController', ['$http', function($http){
@@ -68,3 +68,11 @@ app.controller('mainController', ['$http', function($http){
     }
     this.getPets(); // <---- Load immediately on page load.
 }]) // end mainController
+
+app.config(['$routeProvider', '$locationProvider', function($routerProvider, $locationProvider){
+    $locationProvider.html5Mode({enabled:true})
+}])
+
+app.controller('sessionController', ['$http', function($http){
+
+}])
