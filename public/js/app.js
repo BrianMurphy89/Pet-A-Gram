@@ -84,9 +84,8 @@ app.controller('sessionController', ['$http', function($http){
                 password: this.password
             }
         }).then( (res)=>{
-            this.loggedInUsername = res.data.username
-            console.log(this.loggedInUsername);
             console.log('NEW SESSION CREATED!');
+            this.loggedInUsername = res.data.username
         }, error => {
             console.error(error)
         }).catch(err => console.error('Catch ', err))
@@ -102,6 +101,6 @@ app.controller('sessionController', ['$http', function($http){
         }, error => {
             console.error(error)
         }).catch(err => console.error('Catch ', err))
-    }
+    } // end deleteSession();
 
 }])
