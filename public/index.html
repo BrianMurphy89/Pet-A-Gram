@@ -22,7 +22,7 @@
             </form>
 
                 <button ng-click="session.deleteSession()" type="submit" name="button">Log Out</button>
-
+                <h1 ng-if="session.loggedInUsername">Hello, {{session.loggedInUsername}}</h1>
         </div>
 
 

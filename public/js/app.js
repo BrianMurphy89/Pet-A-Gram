@@ -84,6 +84,8 @@ app.controller('sessionController', ['$http', function($http){
                 password: this.password
             }
         }).then( (res)=>{
+            this.loggedInUsername = res.data.username
+            console.log(this.loggedInUsername);
             console.log('NEW SESSION CREATED!');
         }, error => {
             console.error(error)
