@@ -78,7 +78,7 @@ app.controller('sessionController', ['$http', function($http){
     this.createSession = () =>{
         $http({
             method: 'POST',
-            url: '/sessions/signup',
+            url: '/sessions/login',
             data: {
                 username: this.username,
                 password: this.password
