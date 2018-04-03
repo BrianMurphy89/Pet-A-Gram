@@ -14,10 +14,11 @@ router.get('/', (req,res) => {
 router.post('/', (req,res) => {
     req.body.password = bcrypt.hashSync(req.body.password, bcrypt.genSaltSync(10));
     pet.create(req.body, (err,createdPet) => {
-        res.status(201).json({
-            status:201,
-            message:'User Created'
-        })
+        // res.status(201).json({
+        //     status:201,
+        //     message:'User Created'
+        // })
+        res.json(createdPet);
     })
 })
 

@@ -16,9 +16,9 @@ const petController = require('./controllers/pet-controller.js');
 app.use('/pet-a-gram', petController);
 
 
-//Comment code back in once sessions code has been established!
-// const sessionController = require('./controllers/pet-sessions-controller.js');
-// app.use('/sessions', sessionController);
+
+const sessionController = require('./controllers/pet-sessions-controller.js');
+app.use('/sessions', sessionController);
 
 mongoose.connect('mongodb://localhost:27017/petagram');
 mongoose.connection.once('open', () => {

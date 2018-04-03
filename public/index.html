@@ -9,13 +9,29 @@
         <title></title>
     </head>
     <body ng-controller="mainController as ctrl" ng-app="petApp">
-        <div ng-controller="sessionController as ctrl" ng-view>
+        <div ng-controller="sessionController as session">
+            <!-- User Log In -->
+            <form ng-submit="session.createSession()">
+                <label for="username-login">Username</label>
+                <input type="text" id="username-login" ng-model="session.username">
 
+                <label for="password-login">Password</label>
+                <input type="password" id="password-login" ng-model="session.password">
+
+                <button type="submit" name="button">Sign In</button>
+            </form>
         </div>
+
 
     <!--======= Create New Pet form ========-->
     <div class="form-container new-pet-form">
         <form ng-submit="ctrl.createPet()">
+            <label for="username">Username</label><br>
+            <input type="text" id="username" ng-model="ctrl.formData.username"><br>
+
+            <label for="password">Password</label><br>
+            <input type="text" id="password" ng-model="ctrl.formData.password"><br>
+
             <label for="name">Name</label><br>
             <input type="text" id="name" ng-model="ctrl.formData.name"><br>
 
@@ -35,6 +51,9 @@
     <div ng-repeat="pet in ctrl.allPets">
         <div>
             <h4>{{pet.name}}</h4>
+            <img ng-src="{{pet.profileImg}}">
+            <p>{{pet.species}}</p>
+            <p>{{pet.description}}</p>
             <button ng-click="ctrl.deletePet(pet._id)">DELETE</button>
             <button ng-click="ctrl.indexOfEditFormToShow === $index ? ctrl.indexOfEditFormToShow = null : ctrl.indexOfEditFormToShow = $index">Edit</button>
         </div>

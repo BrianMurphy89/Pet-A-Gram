@@ -69,10 +69,25 @@ app.controller('mainController', ['$http', function($http){
     this.getPets(); // <---- Load immediately on page load.
 }]) // end mainController
 
-app.config(['$routeProvider', '$locationProvider', function($routerProvider, $locationProvider){
-    $locationProvider.html5Mode({enabled:true})
-}])
+// app.config(['$routeProvider', '$locationProvider', function($routerProvider, $locationProvider){
+//     $locationProvider.html5Mode({enabled:true})
+// }])
 
 app.controller('sessionController', ['$http', function($http){
+
+    this.createSession = () =>{
+        $http({
+            method: 'POST',
+            url: '/sessions/signup',
+            data: {
+                username: this.username,
+                password: this.password
+            }
+        }).then( (res)=>{
+            console.log('NEW SESSION CREATED!');
+        }, error => {
+            console.error(error)
+        }).catch(err => console.error('Catch ', err))
+    }
 
 }])
