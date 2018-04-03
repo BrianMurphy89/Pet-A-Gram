@@ -28,18 +28,21 @@ router.post('/signup' , (req,res) => {
                     message:'Login Failed'
                 })
         }
-    })
-})
+        console.log(req.session);
+        console.log(req.session.currentuser)
+    });
+});
 
 router.delete('/destroy-route', (req,res)=>{
     console.log(req.session.currentuser);
-    req.session.destroy( function(){
+
+    req.session.destroy( ()=> {
         res.status(200).json({
             status:200,
             message:'logout complete'
         })
-        })
-    })
+    });
+});
 
 
 module.exports = router;
