@@ -1,0 +1,10 @@
+<div ng-repeat="pet in ctrl.allPets">
+    <div>
+        <h4>{{pet.name}}</h4>
+        <img ng-src="{{pet.profileImg}}">
+        <p>{{pet.species}}</p>
+        <p>{{pet.description}}</p>
+        <button ng-click="ctrl.deletePet(pet._id)">DELETE</button>
+        <button ng-click="ctrl.indexOfEditFormToShow === $index ? ctrl.indexOfEditFormToShow = null : ctrl.indexOfEditFormToShow = $index">Edit</button>
+    </div>
+</div> <!-- end ng-repeat for allPets array -->

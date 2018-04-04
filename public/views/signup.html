@@ -1,0 +1,24 @@
+<!--======= Create New Pet form ========-->
+<div class="form-container new-pet-form">
+    <form ng-submit="ctrl.createPet()">
+        <label for="username">Username</label><br>
+        <input type="text" id="username" ng-model="ctrl.formData.username"><br>
+
+        <label for="password">Password</label><br>
+        <input type="text" id="password" ng-model="ctrl.formData.password"><br>
+
+        <label for="name">Name</label><br>
+        <input type="text" id="name" ng-model="ctrl.formData.name"><br>
+
+        <label for="species">Species</label><br>
+        <input type="text" id="species" ng-model="ctrl.formData.species"><br>
+
+        <label for="profileImg">Profile Image URL</label><br>
+        <input type="text" id="profileImg" ng-model="ctrl.formData.profileImg"><br>
+
+        <label for="description">Description</label><br>
+        <input type="text" id="description" ng-model="ctrl.formData.description"><br>
+
+        <button type="submit">Submit</button>
+    </form>
+</div> <!-- end new-pet-form Container -->

@@ -8,83 +8,20 @@
         <script src="/js/app.js" charset="utf-8"></script>
         <title></title>
     </head>
-    <body ng-controller="mainController as ctrl" ng-app="petApp">
-        <div ng-controller="sessionController as session">
-
-            <!-- User Log In -->
-            <form ng-submit="session.createSession()">
-                <label for="username-login">Username</label>
-                <input type="text" id="username-login" ng-model="session.username">
-
-                <label for="password-login">Password</label>
-                <input type="password" id="password-login" ng-model="session.password">
-
-                <button type="submit" name="button">Sign In</button>
-            </form>
 
 
-            <div ng-if="session.loggedInUsername">
-                <button ng-click="session.deleteSession()" type="submit" name="button">Log Out</button>
-                <h1 >Hello, {{session.loggedInUsername}}</h1>
-            </div>
-        </div>
+    <!-- <body ng-controller="mainController as ctrl" ng-app="petApp"> -->
+    <body ng-app="petApp">
 
 
+    <nav>
+        <a ng-if="loggedInUsername" href="/home">Home</a>
+        <a href="/login">Login</a>
+        <a href="/signup">Sign Up</a>
+        <a ng-if="loggedInUsername" href="/profile">Profile</a>
+    </nav>
 
-    <!--======= Create New Pet form ========-->
-    <div class="form-container new-pet-form">
-        <form ng-submit="ctrl.createPet()">
-            <label for="username">Username</label><br>
-            <input type="text" id="username" ng-model="ctrl.formData.username"><br>
+    <div ng-view></div>
 
-            <label for="password">Password</label><br>
-            <input type="text" id="password" ng-model="ctrl.formData.password"><br>
-
-            <label for="name">Name</label><br>
-            <input type="text" id="name" ng-model="ctrl.formData.name"><br>
-
-            <label for="species">Species</label><br>
-            <input type="text" id="species" ng-model="ctrl.formData.species"><br>
-
-            <label for="profileImg">Profile Image URL</label><br>
-            <input type="text" id="profileImg" ng-model="ctrl.formData.profileImg"><br>
-
-            <label for="description">Description</label><br>
-            <input type="text" id="description" ng-model="ctrl.formData.description"><br>
-
-            <button type="submit">Submit</button>
-        </form>
-    </div> <!-- end new-pet-form Container -->
-
-    <div ng-repeat="pet in ctrl.allPets">
-        <div>
-            <h4>{{pet.name}}</h4>
-            <img ng-src="{{pet.profileImg}}">
-            <p>{{pet.species}}</p>
-            <p>{{pet.description}}</p>
-            <button ng-click="ctrl.deletePet(pet._id)">DELETE</button>
-            <button ng-click="ctrl.indexOfEditFormToShow === $index ? ctrl.indexOfEditFormToShow = null : ctrl.indexOfEditFormToShow = $index">Edit</button>
-        </div>
-
-
-        <!-- ===== Edit Pet Modal ======= -->
-        <div class="modal edit">
-            <form ng-if="$index === ctrl.indexOfEditFormToShow" ng-submit="ctrl.editPet(pet)">
-                <label for="name">Name</label><br>
-                <input type="text" id="name" ng-model="ctrl.editedName"><br>
-
-                <label for="species">Species</label><br>
-                <input type="text" id="species" ng-model="ctrl.editedSpecies"><br>
-
-                <label for="profileImg">Profile Image URL</label><br>
-                <input type="text" id="profileImg" ng-model="ctrl.editedProfileImg"><br>
-
-                <label for="description">Description</label><br>
-                <input type="text" id="description" ng-model="ctrl.editedDescription"><br>
-
-                <button type="submit">Submit</button>
-            </form>
-        </div> <!-- end Edit Pet Modal -->
-    </div> <!-- end ng-repeat for allPets array -->
     </body>
 </html>

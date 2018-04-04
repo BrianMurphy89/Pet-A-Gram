@@ -1,0 +1,21 @@
+<!-- ===== Edit Pet Modal ======= -->
+{{ 2 + 2}}
+<div ng-repeat="pet in ctrl.allPets">
+<div class="modal edit">
+    <form ng-if="$index === ctrl.indexOfEditFormToShow" ng-submit="ctrl.editPet(pet)">
+        <label for="name">Name</label><br>
+        <input type="text" id="name" ng-model="ctrl.editedName"><br>
+
+        <label for="species">Species</label><br>
+        <input type="text" id="species" ng-model="ctrl.editedSpecies"><br>
+
+        <label for="profileImg">Profile Image URL</label><br>
+        <input type="text" id="profileImg" ng-model="ctrl.editedProfileImg"><br>
+
+        <label for="description">Description</label><br>
+        <input type="text" id="description" ng-model="ctrl.editedDescription"><br>
+
+        <button type="submit">Submit</button>
+    </form>
+</div> <!-- end Edit Pet Modal -->
+</div> <!-- end ng-repeat for allPets array -->

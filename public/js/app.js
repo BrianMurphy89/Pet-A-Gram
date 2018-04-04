@@ -105,4 +105,32 @@ app.controller('sessionController', ['$http', function($http){
         }).catch(err => console.error('Catch ', err))
     } // end deleteSession();
 
+}]) // end sessionController
+
+app.config(['$routeProvider', '$locationProvider', function($routeProvider,$locationProvider){
+    $locationProvider.html5Mode({enabled:true});
+
+    $routeProvider.when('/home', {
+        templateUrl: '/views/home.html',
+        controller: 'mainController',
+        controllerAs: 'ctrl'
+    })
+
+    $routeProvider.when('/login', {
+        templateUrl: '/views/login.html',
+        controller: 'sessionController',
+        controllerAs: 'session'
+    })
+
+    $routeProvider.when('/signup', {
+        templateUrl: '/views/signup.html',
+        controller: 'mainController',
+        controllerAs: 'ctrl'
+    })
+
+    $routeProvider.when('/profile', {
+        templateUrl: '/views/profile.html',
+        controller: 'mainController',
+        controllerAs: 'ctrl'
+    })
 }])

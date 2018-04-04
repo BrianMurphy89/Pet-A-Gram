@@ -1,0 +1,22 @@
+
+
+
+<!-- <div ng-controller="sessionController as session"> -->
+    <!-- User Log In -->
+    <form ng-submit="session.createSession()">
+        <label for="username-login">Username</label>
+        <input type="text" id="username-login" ng-model="session.username">
+
+        <label for="password-login">Password</label>
+        <input type="password" id="password-login" ng-model="session.password">
+
+        <button type="submit" name="button">Sign In</button>
+    </form>
+
+
+    <div ng-if="session.loggedInUsername">
+        <button ng-click="session.deleteSession()" type="submit" name="button">Log Out</button>
+        <h1 >Hello, {{session.loggedInUsername}}</h1>
+        <a href="/home"><button>Go to App</button></a>
+    </div>
+<!-- </div> -->
