@@ -1,0 +1,25 @@
+.nav-container {
+    background: deepskyblue;
+    height: 50px;
+}
+
+.nav {
+    display: flex;
+    list-style: none;
+    justify-content: flex-end;
+    height: 50px;
+    align-items: center;
+    border: green 3px solid;
+}
+
+.nav a {
+    text-decoration: none;
+    color: white;
+    display: block;
+    border: solid red 1px;
+    padding:1%;
+}
+
+.nav a:hover {
+    background: darken(deepskyblue, 2%)
+}
