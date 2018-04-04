@@ -75,6 +75,7 @@ app.controller('mainController', ['$http', function($http){
 
 app.controller('sessionController', ['$http', function($http){
 
+
     this.createSession = () =>{
         $http({
             method: 'POST',
@@ -96,6 +97,7 @@ app.controller('sessionController', ['$http', function($http){
             method: 'DELETE',
             url: '/sessions/destroy-route'
         }).then( (res)=>{
+            this.loggedInUsername = false;
             console.log(res);
             console.log('LOGGED OUT');
         }, error => {

@@ -7,7 +7,14 @@ const petSchema = new mongoose.Schema({
     species: String,
     profileImg: String,
     description: String,
-    images: [String]
+    posts: [
+        {
+            image: String,
+            comments: [String],
+            likes: {type: Number, default: 0},
+            location: String
+        }
+    ]
 });
 
 const Pets = mongoose.model('Pet', petSchema);

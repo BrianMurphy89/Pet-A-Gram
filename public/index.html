@@ -10,6 +10,7 @@
     </head>
     <body ng-controller="mainController as ctrl" ng-app="petApp">
         <div ng-controller="sessionController as session">
+
             <!-- User Log In -->
             <form ng-submit="session.createSession()">
                 <label for="username-login">Username</label>
@@ -21,8 +22,11 @@
                 <button type="submit" name="button">Sign In</button>
             </form>
 
+
+            <div ng-if="session.loggedInUsername">
                 <button ng-click="session.deleteSession()" type="submit" name="button">Log Out</button>
-                <h1 ng-if="session.loggedInUsername">Hello, {{session.loggedInUsername}}</h1>
+                <h1 >Hello, {{session.loggedInUsername}}</h1>
+            </div>
         </div>
 
 
