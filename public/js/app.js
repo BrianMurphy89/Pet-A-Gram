@@ -1,4 +1,4 @@
-const app = angular.module('petApp', []);
+const app = angular.module('petApp', ['ngRoute']);
 
 
 app.controller('mainController', ['$http', function($http){
@@ -68,3 +68,41 @@ app.controller('mainController', ['$http', function($http){
     }
     this.getPets(); // <---- Load immediately on page load.
 }]) // end mainController
+
+// app.config(['$routeProvider', '$locationProvider', function($routerProvider, $locationProvider){
+//     $locationProvider.html5Mode({enabled:true})
+// }])
+
+app.controller('sessionController', ['$http', function($http){
+
+
+    this.createSession = () =>{
+        $http({
+            method: 'POST',
+            url: '/sessions/login',
+            data: {
+                username: this.username,
+                password: this.password
+            }
+        }).then( (res)=>{
+            console.log('NEW SESSION CREATED!');
+            this.loggedInUsername = res.data.username
+        }, error => {
+            console.error(error)
+        }).catch(err => console.error('Catch ', err))
+    } // end createSession()
+
+    this.deleteSession = () =>{
+        $http({
+            method: 'DELETE',
+            url: '/sessions/destroy-route'
+        }).then( (res)=>{
+            this.loggedInUsername = false;
+            console.log(res);
+            console.log('LOGGED OUT');
+        }, error => {
+            console.error(error)
+        }).catch(err => console.error('Catch ', err))
+    } // end deleteSession();
+
+}])

@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const pet = require('../models/pet-schema.js');
+const bcrypt = require('bcrypt');
 
 //Index Route
 router.get('/', (req,res) => {
@@ -11,8 +12,13 @@ router.get('/', (req,res) => {
 
 //Create Route
 router.post('/', (req,res) => {
+    req.body.password = bcrypt.hashSync(req.body.password, bcrypt.genSaltSync(10));
     pet.create(req.body, (err,createdPet) => {
-        res.json(createdPet)
+        // res.status(201).json({
+        //     status:201,
+        //     message:'User Created'
+        // })
+        res.json(createdPet);
     })
 })
 
