@@ -75,7 +75,11 @@ app.controller('mainController', ['$http', function($http){
 
 app.controller('sessionController', ['$http', function($http){
 
+    this.isAuthorized = false
 
+    this.toggleAuthorized = () =>{
+        this.isAuthorized = !this.isAuthorized;
+    }
     this.createSession = () =>{
         $http({
             method: 'POST',
@@ -87,6 +91,8 @@ app.controller('sessionController', ['$http', function($http){
         }).then( (res)=>{
             console.log('NEW SESSION CREATED!');
             this.loggedInUsername = res.data.username
+            this.toggleAuthorized()
+            console.log(this.isAuthorized);
         }, error => {
             console.error(error)
         }).catch(err => console.error('Catch ', err))
@@ -97,13 +103,18 @@ app.controller('sessionController', ['$http', function($http){
             method: 'DELETE',
             url: '/sessions/destroy-route'
         }).then( (res)=>{
-            this.loggedInUsername = false;
+            this.toggleAuthorized;
+            this.loggedInUsername = false
+            console.log(this.isAuthorized);
             console.log(res);
             console.log('LOGGED OUT');
         }, error => {
             console.error(error)
         }).catch(err => console.error('Catch ', err))
     } // end deleteSession();
+
+
+
 
 }]) // end sessionController
 
@@ -132,5 +143,11 @@ app.config(['$routeProvider', '$locationProvider', function($routeProvider,$loca
         templateUrl: '/views/profile.html',
         controller: 'mainController',
         controllerAs: 'ctrl'
+    })
+
+    $routeProvider.when('/welcome', {
+        templateUrl: '/views/welcome.html',
+        controller: 'sessionController',
+        controllerAs: 'session'
     })
 }])

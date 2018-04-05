@@ -1,5 +1,15 @@
 <!--======= Create New Pet form ========-->
-<div class="form-container new-pet-form">
+
+
+<h1>Petagram</h1>
+
+<div class="info-container">
+    <h3>About</h3>
+    <p>Donec id elit non mi porta gravida at eget metus. Etiam porta sem malesuada magna mollis euismod. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Nullam quis risus eget urna mollis ornare vel eu leo.Vestibulum id ligula porta felis euismod semper. Curabitur blandit tempus porttitor. Sed posuere consectetur est at lobortis. Sed posuere consectetur est at lobortis. Aenean lacinia bibendum nulla sed consectetur.</p>
+</div>
+
+
+<div class="signup-container">
     <form ng-submit="ctrl.createPet()">
         <label for="username">Username</label><br>
         <input type="text" id="username" ng-model="ctrl.formData.username"><br>
@@ -21,4 +31,8 @@
 
         <button type="submit">Submit</button>
     </form>
+
+    <div>
+        <p> Have an account? <a href="/login">Log in</a></p>
+    </div>
 </div> <!-- end new-pet-form Container -->

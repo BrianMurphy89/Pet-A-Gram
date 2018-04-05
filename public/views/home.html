@@ -1,7 +1,10 @@
+
+
+
 <div ng-repeat="pet in ctrl.allPets">
-    <div>
-        <h4>{{pet.name}}</h4>
+    <div class="post-card">
         <img ng-src="{{pet.profileImg}}">
+        <h4>{{pet.}}
         <p>{{pet.species}}</p>
         <p>{{pet.description}}</p>
         <button ng-click="ctrl.deletePet(pet._id)">DELETE</button>

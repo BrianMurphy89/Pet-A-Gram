@@ -36,4 +36,10 @@ router.put('/:id' , (req, res) => {
     })
 })
 
+// show route
+router.get('/:id', (req,res)=>{
+    pet.findById(req.params.id, (err,foundPet)=>{
+        res.json(foundPet)
+    })
+})
 module.exports = router;
