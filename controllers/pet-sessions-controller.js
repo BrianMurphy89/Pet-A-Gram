@@ -3,7 +3,7 @@ const router = express.Router();
 const user = require('../models/pet-schema.js')
 const bcrypt = require('bcrypt');
 
-router.get('/app' , (req,res) => {
+router.get('/session' , (req,res) => {
     if(req.session.currentuser){
         res.json(req.session.currentuser)
     }   else{

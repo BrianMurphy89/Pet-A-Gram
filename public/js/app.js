@@ -113,7 +113,19 @@ app.controller('sessionController', ['$http', function($http){
         }).catch(err => console.error('Catch ', err))
     } // end deleteSession();
 
-
+    this.checkAuth = () => {
+        $http({
+            method: 'GET',
+            url: '/session'
+        }).then( (res)=>{
+            if(res.data.user) {
+                this.user = res.data.user;
+                console.log(this.user);
+                this.logged = true;
+                this.home = true;
+            }
+        })
+    }
 
 
 }]) // end sessionController

@@ -1,38 +1,39 @@
 <!--======= Create New Pet form ========-->
 
+<div class="container">
+    <h1>Petagram</h1>
 
-<h1>Petagram</h1>
-
-<div class="info-container">
-    <h3>About</h3>
-    <p>Donec id elit non mi porta gravida at eget metus. Etiam porta sem malesuada magna mollis euismod. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Nullam quis risus eget urna mollis ornare vel eu leo.Vestibulum id ligula porta felis euismod semper. Curabitur blandit tempus porttitor. Sed posuere consectetur est at lobortis. Sed posuere consectetur est at lobortis. Aenean lacinia bibendum nulla sed consectetur.</p>
-</div>
-
-
-<div class="signup-container">
-    <form ng-submit="ctrl.createPet()">
-        <label for="username">Username</label><br>
-        <input type="text" id="username" ng-model="ctrl.formData.username"><br>
-
-        <label for="password">Password</label><br>
-        <input type="text" id="password" ng-model="ctrl.formData.password"><br>
-
-        <label for="name">Name</label><br>
-        <input type="text" id="name" ng-model="ctrl.formData.name"><br>
-
-        <label for="species">Species</label><br>
-        <input type="text" id="species" ng-model="ctrl.formData.species"><br>
-
-        <label for="profileImg">Profile Image URL</label><br>
-        <input type="text" id="profileImg" ng-model="ctrl.formData.profileImg"><br>
-
-        <label for="description">Description</label><br>
-        <input type="text" id="description" ng-model="ctrl.formData.description"><br>
-
-        <button type="submit">Submit</button>
-    </form>
-
-    <div>
-        <p> Have an account? <a href="/login">Log in</a></p>
+    <div class="info-container">
+        <h3>About</h3>
+        <p>Donec id elit non mi porta gravida at eget metus. Etiam porta sem malesuada magna mollis euismod. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Nullam quis risus eget urna mollis ornare vel eu leo.Vestibulum id ligula porta felis euismod semper. Curabitur blandit tempus porttitor. Sed posuere consectetur est at lobortis. Sed posuere consectetur est at lobortis. Aenean lacinia bibendum nulla sed consectetur.</p>
     </div>
-</div> <!-- end new-pet-form Container -->
+
+
+    <div class="signup-container">
+        <form ng-submit="ctrl.createPet()">
+            <label for="username">Username</label><br>
+            <input type="text" id="username" ng-model="ctrl.formData.username"><br>
+
+            <label for="password">Password</label><br>
+            <input type="text" id="password" ng-model="ctrl.formData.password"><br>
+
+            <label for="name">Name</label><br>
+            <input type="text" id="name" ng-model="ctrl.formData.name"><br>
+
+            <label for="species">Species</label><br>
+            <input type="text" id="species" ng-model="ctrl.formData.species"><br>
+
+            <label for="profileImg">Profile Image URL</label><br>
+            <input type="text" id="profileImg" ng-model="ctrl.formData.profileImg"><br>
+
+            <label for="description">Description</label><br>
+            <input type="text" id="description" ng-model="ctrl.formData.description"><br>
+
+            <button type="submit">Submit</button>
+        </form>
+
+        <div>
+            <p> Have an account? <a href="/login">Log in</a></p>
+        </div>
+    </div> <!-- end new-pet-form Container -->
+</div> <!-- end site container -->
