@@ -1,0 +1,25 @@
+.nav-container {
+    height: 50px;
+    display: flex;
+    align-items: center;
+    background: deepskyblue;
+    width: 100%;
+    position: fixed;
+    top: 0;
+}
+
+nav a {
+    padding: 10px;
+    color: white;
+    text-decoration: none;
+}
+
+.logo-container {
+    align-self: flex-start;
+}
+
+.nav-logo {
+    height: 50px;
+    width: 50px;
+    align-self: flex-start;
+}

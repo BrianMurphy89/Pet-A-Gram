@@ -4,6 +4,7 @@
         <meta charset="utf-8">
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular-route.min.js"></script>
+        <link rel="stylesheet" href="/css/style.css">
         <base href="/" target="_blank">
         <script src="/js/app.js" charset="utf-8"></script>
         <title></title>
@@ -12,14 +13,19 @@
 
     <!-- <body ng-controller="mainController as ctrl" ng-app="petApp"> -->
     <body ng-app="petApp">
-
-        <nav>
-            <a href="/home">Home</a>
-            <a href="/login">Login</a>
-            <a href="/signup">Sign Up</a>
-            <a href="/profile">Profile</a>
-        </nav>
-
+        <div class="nav-container">
+            <div class="logo-container">
+                <img src="http://thechurchontheway.org/wp-content/uploads/2016/05/placeholder1.png" alt="Pet-A-Gram Logo" class="nav-logo">
+            </div>
+            <div class="link-container">
+                <nav>
+                    <a href="/home">Home</a>
+                    <a href="/login">Login</a>
+                    <a href="/signup">Sign Up</a>
+                    <a href="/profile">Profile</a>
+                </nav>
+            </div>
+        </div>
     <div ng-view></div>
 
     </body>
