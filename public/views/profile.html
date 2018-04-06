@@ -1,8 +1,20 @@
+
+
+
+<!-- make a new post -->
+    <form ng-submit="post.createPost()">
+        <label for="petId">petID</label>
+        <input ng-model="post.formData.petId" type="text" id="petId">
+        <label for="image">Image URL:</label><br>
+        <input id="image" type="text" ng-model="post.formData.image"><br>
+        <label for="caption">Caption:</label><br>
+        <input id ="caption" type="text" ng-model="post.formData.caption"><br>
+        <button type="submit">Submit</button>
+    </form>
+
+
 <!-- ===== Edit Pet Modal ======= -->
-{{ 2 + 2}}
-
-
-<div ng-repeat="pet in ctrl.allPets">
+<!-- <div ng-repeat="pet in ctrl.allPets">
 <div class="modal edit">
     <form ng-if="$index === ctrl.indexOfEditFormToShow" ng-submit="ctrl.editPet(pet)">
         <label for="name">Name</label><br>
@@ -19,5 +31,5 @@
 
         <button type="submit">Submit</button>
     </form>
-</div> <!-- end Edit Pet Modal -->
-</div> <!-- end ng-repeat for allPets array -->
+</div>  end Edit Pet Modal -->
+<!-- </div>  end ng-repeat for allPets array --> -->

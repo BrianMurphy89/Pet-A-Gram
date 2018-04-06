@@ -69,9 +69,6 @@ app.controller('mainController', ['$http', function($http){
     this.getPets(); // <---- Load immediately on page load.
 }]) // end mainController
 
-// app.config(['$routeProvider', '$locationProvider', function($routerProvider, $locationProvider){
-//     $locationProvider.html5Mode({enabled:true})
-// }])
 
 app.controller('sessionController', ['$http', function($http){
 
@@ -91,6 +88,7 @@ app.controller('sessionController', ['$http', function($http){
         }).then( (res)=>{
             console.log('NEW SESSION CREATED!');
             this.loggedInUsername = res.data.username
+            this.userId = res.data._id
             this.toggleAuthorized()
             console.log(this.isAuthorized);
         }, error => {
@@ -113,23 +111,46 @@ app.controller('sessionController', ['$http', function($http){
         }).catch(err => console.error('Catch ', err))
     } // end deleteSession();
 
-    this.checkAuth = () => {
-        $http({
-            method: 'GET',
-            url: '/session'
-        }).then( (res)=>{
-            if(res.data.user) {
-                this.user = res.data.user;
-                console.log(this.user);
-                this.logged = true;
-                this.home = true;
-            }
-        })
-    }
+    // this.checkAuth = () => {
+    //     $http({
+    //         method: 'GET',
+    //         url: '/session'
+    //     }).then( (res)=>{
+    //         if(res.data.user) {
+    //             this.user = res.data.user;
+    //             console.log(this.user);
+    //             this.logged = true;
+    //             this.home = true;
+    //         }
+    //     })
+    // }
 
 
 }]) // end sessionController
 
+
+app.controller('postController', ['$http', function($http){
+
+    // empty array to store posts in
+    this.allPosts = [];
+
+    // empty object to add data from form submission into
+    this.formData = {};
+
+    this.createPost = () => {
+        $http({
+            method: 'POST',
+            url: '/posts/',
+            data: this.formData
+        }).then( (res)=>{
+            console.log(res);
+            this.formData = {};
+
+        })
+    }
+
+
+}])
 app.config(['$routeProvider', '$locationProvider', function($routeProvider,$locationProvider){
     $locationProvider.html5Mode({enabled:true});
 
@@ -153,8 +174,8 @@ app.config(['$routeProvider', '$locationProvider', function($routeProvider,$loca
 
     $routeProvider.when('/profile', {
         templateUrl: '/views/profile.html',
-        controller: 'mainController',
-        controllerAs: 'ctrl'
+        controller: 'postController',
+        controllerAs: 'post'
     })
 
     $routeProvider.when('/welcome', {
