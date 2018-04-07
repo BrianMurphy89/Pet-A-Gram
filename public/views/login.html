@@ -13,12 +13,12 @@
 
 <div class="login-container">
 <div>
-    <form ng-submit="session.createSession()">
+    <form ng-submit="ctrl.createSession()">
         <label for="username-login">Username</label><br>
-        <input type="text" id="username-login" ng-model="session.username"><br>
+        <input type="text" id="username-login" ng-model="ctrl.username"><br>
 
         <label for="password-login">Password</label><br>
-        <input type="password" id="password-login" ng-model="session.password"><br>
+        <input type="password" id="password-login" ng-model="ctrl.password"><br>
 
         <button type="submit" name="button">Sign In</button>
     </form>
@@ -28,8 +28,8 @@
     <p> Don't have an account? <a href="/signup">Sign up</a></p>
 </div>
 
-    <div ng-if="session.loggedInUsername">
-        <button ng-click="session.deleteSession()" type="submit" name="button">Log Out</button>
+    <div ng-if="ctrl.loggedInUsername">
+        <button ng-click="ctrl.deleteSession()" type="submit" name="button">Log Out</button>
         <h1 >Hello, {{session.loggedInUsername}}</h1>
         <a href="/home"><button>Go to App</button></a>
     </div>

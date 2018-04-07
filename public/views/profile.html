@@ -1,15 +1,19 @@
 
 
-
+    <button ng-controller="mainController as ctrl" ng-click="ctrl.getProfilePet(ctrl.petId)">SEE PROFILE</button>
 <!-- make a new post -->
-    <form ng-submit="post.createPost()">
-        <label for="petId">petID</label>
-        <input ng-model="post.formData.petId" type="text" id="petId">
-        <label for="image">Image URL:</label><br>
-        <input id="image" type="text" ng-model="post.formData.image"><br>
-        <label for="caption">Caption:</label><br>
-        <input id ="caption" type="text" ng-model="post.formData.caption"><br>
-        <button type="submit">Submit</button>
+    <form ng-submit="ctrl.createPost()">
+        <select>
+            <option ng-model="ctrl.petId">{{ctrl.petId}}<option>
+        </select>
+
+            <input ng-model="ctrl.formDataPosts.petId" type="text" id="petId">
+            <label for="image">Image URL:</label><br>
+            <input id="image" type="text" ng-model="ctrl.formDataPosts.image"><br>
+            <label for="caption">Caption:</label><br>
+            <input id ="caption" type="text" ng-model="ctrl.formDataPosts.caption"><br>
+            <button type="submit">Submit</button>
+
     </form>
 
 

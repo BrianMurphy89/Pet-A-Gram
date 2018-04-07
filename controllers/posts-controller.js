@@ -16,8 +16,8 @@ router.get('/new', (req,res)=>{
     });
 });
 
-router.post('/', (req,res)=>{
-    Pet.findById(req.body.petId, (err, foundPet)=>{
+router.post('/:id', (req,res)=>{
+    Pet.findById(req.params.id, (err, foundPet)=>{
         Post.create(req.body, (err, createdPost)=>{
             foundPet.posts.push(createdPost);
             foundPet.save((err, data)=>{

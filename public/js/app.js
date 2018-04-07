@@ -22,6 +22,20 @@ app.controller('mainController', ['$http', function($http){
         }).catch(err => console.error('Catch ', err))
     } // end getPets();
 
+    this.getProfilePet = (id) =>{
+        $http({
+            method: 'GET',
+            url: '/pet-a-gram/' + id
+        }).then( (res) => {
+            this.profilePet = res.data
+            console.log(this.profilePet);
+            console.log('SEE PROFILE');
+        }, error => {
+            console.error(error);
+        }).catch(err => console.error('Catch ', err))
+    }
+
+
     this.createPet = ()=> {
         $http({
             method: 'POST',
@@ -67,10 +81,7 @@ app.controller('mainController', ['$http', function($http){
         }).catch(err => console.error('Catch ', err))
     }
     this.getPets(); // <---- Load immediately on page load.
-}]) // end mainController
 
-
-app.controller('sessionController', ['$http', function($http){
 
     this.isAuthorized = false
 
@@ -88,8 +99,9 @@ app.controller('sessionController', ['$http', function($http){
         }).then( (res)=>{
             console.log('NEW SESSION CREATED!');
             this.loggedInUsername = res.data.username
-            this.userId = res.data._id
+            this.petId = res.data._id
             this.toggleAuthorized()
+            console.log(this.userId);
             console.log(this.isAuthorized);
         }, error => {
             console.error(error)
@@ -126,25 +138,20 @@ app.controller('sessionController', ['$http', function($http){
     // }
 
 
-}]) // end sessionController
-
-
-app.controller('postController', ['$http', function($http){
-
     // empty array to store posts in
     this.allPosts = [];
 
     // empty object to add data from form submission into
-    this.formData = {};
+    this.formDataPosts = {};
 
     this.createPost = () => {
         $http({
             method: 'POST',
             url: '/posts/',
-            data: this.formData
+            data: this.formDataPosts
         }).then( (res)=>{
             console.log(res);
-            this.formData = {};
+            this.formDataPosts = {};
 
         })
     }
@@ -162,8 +169,8 @@ app.config(['$routeProvider', '$locationProvider', function($routeProvider,$loca
 
     $routeProvider.when('/login', {
         templateUrl: '/views/login.html',
-        controller: 'sessionController',
-        controllerAs: 'session'
+        controller: 'mainController',
+        controllerAs: 'ctrl'
     })
 
     $routeProvider.when('/signup', {
@@ -174,13 +181,13 @@ app.config(['$routeProvider', '$locationProvider', function($routeProvider,$loca
 
     $routeProvider.when('/profile', {
         templateUrl: '/views/profile.html',
-        controller: 'postController',
-        controllerAs: 'post'
+        controller: 'mainController',
+        controllerAs: 'ctrl'
     })
 
     $routeProvider.when('/welcome', {
         templateUrl: '/views/welcome.html',
-        controller: 'sessionController',
-        controllerAs: 'session'
+        controller: 'mainController',
+        controllerAs: 'ctrl'
     })
 }])
