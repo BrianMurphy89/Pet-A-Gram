@@ -14,7 +14,8 @@
         <a ng-if="ctrl.loggedInUsername" ng-click="ctrl.showHome()" href="#">Home</a>
         <a ng-click="ctrl.showLogin()" href="#">Login</a>
         <a ng-click="ctrl.showSignUp()" href="#">Sign Up</a>
-        <a ng-if="ctrl.loggedInUsername" ng-click="ctrl.showProfile()"href="#">Profile</a>
+        <a ng-if="ctrl.loggedInUsername" ng-click="ctrl.showProfile()" href="#">Profile</a>
+        <a ng-if="ctrl.loggedInUsername" ng-click="ctrl.deleteSession()" href="#">Log Out</a>
     </nav>
 
     <div ng-if="ctrl.currentPage === 'home'" ng-include="'views/home.html'"></div>

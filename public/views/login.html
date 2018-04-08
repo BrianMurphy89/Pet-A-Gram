@@ -30,8 +30,8 @@
 
     <div ng-if="ctrl.loggedInUsername">
         <button ng-click="ctrl.deleteSession()" type="submit" name="button">Log Out</button>
-        <h1 >Hello, {{session.loggedInUsername}}</h1>
-        <a href="/home"><button>Go to App</button></a>
+        <h1 >Hello, {{ctrl.loggedInUsername}}</h1>
+        <button ng-click="ctrl.showProfile()">Go to Profile</button>
     </div>
 </div>
 

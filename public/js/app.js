@@ -158,7 +158,9 @@ app.controller('mainController', ['$http', function($http){
     // empty object to add data from form submission into
     this.formDataPosts = {};
 
-    this.createPost = () => {
+    this.createPost = (petId) => {
+        this.formDataPosts.petId = petId
+        console.log(this.formDataPosts);
         $http({
             method: 'POST',
             url: '/posts/',
