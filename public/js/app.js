@@ -113,8 +113,10 @@ app.controller('mainController', ['$http', function($http){
         }).then( (res)=>{
             console.log('NEW SESSION CREATED!');
             this.loggedInUsername = res.data.username
+            this.user = res.data
             this.petId = res.data._id
             this.toggleAuthorized()
+            this.getProfilePet(this.petId);
             console.log(this.petId);
             console.log(this.isAuthorized);
         }, error => {

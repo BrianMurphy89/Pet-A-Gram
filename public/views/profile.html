@@ -1,6 +1,13 @@
 
 
 <!-- make a new post -->
+    <h4>{{ctrl.loggedInUsername}}</h4>
+    <img ng-src="{{ctrl.user.profileImg}}">
+    <h4>{{ctrl.user.name}}</h4>
+    <p>{{ctrl.user.description}}</p>
+
+    <div class="new-post-container">
+    <h4>Create New Post</h4>
     <form ng-submit="ctrl.createPost(ctrl.petId)">
         <!-- <select>
             <option ng-model="ctrl.petId">{{ctrl.petId}}<option>
@@ -12,7 +19,12 @@
             <button type="submit">Submit</button>
 
     </form>
+    </div>
 
+    <div ng-repeat="post in ctrl.user.posts">
+        <img ng-src="{{post.image}}">
+        <p>{{post.caption}}</p>
+    </div>
 
 <!-- ===== Edit Pet Modal ======= -->
 <!-- <div ng-repeat="pet in ctrl.allPets">
