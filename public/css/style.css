@@ -23,3 +23,82 @@ nav a {
     width: 50px;
     align-self: flex-start;
 }
+
+nav a:hover {
+    background: darken(deepskyblue, 5%)
+}
+
+h3 {
+    font-family: 'Hi Melody', cursive;
+    font-size: 2em;
+    text-align: center;
+    border-bottom: dashed 2px black;
+    margin-top: 5%;
+
+}
+
+h1 {
+    font-family: 'Hi Melody', cursive;
+    color: white;
+    margin-left: 150px;
+    font-size: 50px;
+    padding-bottom: 7px;
+}
+
+p {
+    font-family: helvetica, cursive;
+    text-align: center;
+    font-size: 1em;
+}
+
+input [type=text] :focus {
+    border: 3px solid #555;
+}
+
+input {
+    width: 25%;
+}
+
+button {
+    border: 0;
+    background: black;
+    color: white;
+}
+
+button:hover {
+    transition: 0.4s;
+    background-color: green;
+}
+
+.form-container {
+    border: red 1px solid;
+    text-align: center;
+}
+.login-container {
+    border: solid blue 1px;
+    width: 75%;
+    align-items: center;
+}
+
+form {
+    width: 100%;
+}
+
+.description-container {
+    border: green 1px solid;
+}
+
+.info-container {
+    border: solid yellow 3px;
+    width: 75%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin: 0 auto;
+}
+
+.signup-container {
+    width: 75%;
+    align-items: center;
+    text-align: center;
+}
