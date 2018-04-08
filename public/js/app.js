@@ -3,6 +3,20 @@ const app = angular.module('petApp', ['ngRoute']);
 
 app.controller('mainController', ['$http', function($http){
 
+    this.currentPage = 'login';
+    this.showHome = () => {
+        this.currentPage = 'home';
+    }
+    this.showLogin = () => {
+        this.currentPage = 'login';
+    }
+    this.showSignUp = () => {
+        this.currentPage = 'signup';
+    }
+
+    this.showProfile = () => {
+        this.currentPage = 'profile';
+    }
     // empty array to store pets in
     this.allPets = [];
 
@@ -101,7 +115,7 @@ app.controller('mainController', ['$http', function($http){
             this.loggedInUsername = res.data.username
             this.petId = res.data._id
             this.toggleAuthorized()
-            console.log(this.userId);
+            console.log(this.petId);
             console.log(this.isAuthorized);
         }, error => {
             console.error(error)
@@ -126,7 +140,7 @@ app.controller('mainController', ['$http', function($http){
     // this.checkAuth = () => {
     //     $http({
     //         method: 'GET',
-    //         url: '/session'
+    //         url: '/sessions/session'
     //     }).then( (res)=>{
     //         if(res.data.user) {
     //             this.user = res.data.user;
@@ -158,36 +172,36 @@ app.controller('mainController', ['$http', function($http){
 
 
 }])
-app.config(['$routeProvider', '$locationProvider', function($routeProvider,$locationProvider){
-    $locationProvider.html5Mode({enabled:true});
-
-    $routeProvider.when('/home', {
-        templateUrl: '/views/home.html',
-        controller: 'mainController',
-        controllerAs: 'ctrl'
-    })
-
-    $routeProvider.when('/login', {
-        templateUrl: '/views/login.html',
-        controller: 'mainController',
-        controllerAs: 'ctrl'
-    })
-
-    $routeProvider.when('/signup', {
-        templateUrl: '/views/signup.html',
-        controller: 'mainController',
-        controllerAs: 'ctrl'
-    })
-
-    $routeProvider.when('/profile', {
-        templateUrl: '/views/profile.html',
-        controller: 'mainController',
-        controllerAs: 'ctrl'
-    })
-
-    $routeProvider.when('/welcome', {
-        templateUrl: '/views/welcome.html',
-        controller: 'mainController',
-        controllerAs: 'ctrl'
-    })
-}])
+// app.config(['$routeProvider', '$locationProvider', function($routeProvider,$locationProvider){
+//     $locationProvider.html5Mode({enabled:true});
+//
+//     $routeProvider.when('/home', {
+//         templateUrl: '/views/home.html',
+//         controller: 'mainController',
+//         controllerAs: 'ctrl'
+//     })
+//
+//     $routeProvider.when('/login', {
+//         templateUrl: '/views/login.html',
+//         controller: 'mainController',
+//         controllerAs: 'ctrl'
+//     })
+//
+//     $routeProvider.when('/signup', {
+//         templateUrl: '/views/signup.html',
+//         controller: 'mainController',
+//         controllerAs: 'ctrl'
+//     })
+//
+//     $routeProvider.when('/profile', {
+//         templateUrl: '/views/profile.html',
+//         controller: 'mainController',
+//         controllerAs: 'ctrl'
+//     })
+//
+//     $routeProvider.when('/welcome', {
+//         templateUrl: '/views/welcome.html',
+//         controller: 'mainController',
+//         controllerAs: 'ctrl'
+//     })
+// }])

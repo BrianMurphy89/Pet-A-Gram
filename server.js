@@ -2,6 +2,8 @@ const express = require('express');
 const app = express();
 const mongoose = require('mongoose');
 const session = require('express-session')
+const morgan = require('morgan')
+
 
 app.use(express.urlencoded({extended:false}));
 app.use(express.static('public'));
@@ -11,6 +13,8 @@ app.use(session({
     resave:false,
     saveUninitialized:false
 }))
+app.use(morgan('tiny'));
+
 
 const petController = require('./controllers/pet-controller.js');
 app.use('/pet-a-gram', petController);
