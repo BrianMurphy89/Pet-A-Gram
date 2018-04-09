@@ -119,8 +119,13 @@ form {
 }
 
 #image-feed {
-    margin-top: 5%;
-    border: red 2px solid;
+    margin: 5% auto 0;
+    border: black 2px solid;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    height: 300px;
 }
 
 #profile-img {
@@ -130,6 +135,99 @@ form {
 }
 
 .profile-credentials {
-    border: solid blue 1px;
+    border-bottom: solid black 2px;
+    width: 100%;
+    height: 50px;
+    display: flex;
+    align-items: center;
+}
+
+#post-img {
+    max-height: 250px;
+}
+
+#image-feed .image-container img{
+    width: 100%;
+    object-fit: contain;
+}
+
+
+.username-petname {
+    float: right;
+    align-items: center;
+}
+
+h4 {
+    font-size: 15px;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color:rgb(220,220,220);
+}
+
+/* Profile Styling */
+
+.profile-info {
+    margin: 5% auto 0;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.profile-description {
+    border: 2px solid black;
+    border-radius: 5px;
+}
+
+.new-post-container {
+    display: flex;
+    text-align: center;
+    flex-direction: column;
+}
+
+.delete-profile-btn:hover {
+    transition: 0.4s;
+    background-color: red;
+}
+
+.delete-profile-btn {
     width: 15%;
+    margin: 0 auto 1%;
+}
+
+.edit-profile-btn {
+    width: 15%;
+    margin: 0 auto;
+}
+
+h5 {
+    font-size: 20px;
+}
+
+#profile-post-container {
+    border: solid black 1px;
+    border-radius: 5px;
+    margin: 5% auto 0;
+    width: 50%;
+    text-align: center;
+}
+
+#profile-post-container img {
+    width: 100%;
+    object-fit: contain;
+}
+
+#profile-posts {
+    max-height: 250px;
+}
+
+.delete-post-btn:hover {
+    transition: 0.4s;
+    background-color: red;
+}
+
+.profile-page-img img {
+    border-radius: 100%;
 }
