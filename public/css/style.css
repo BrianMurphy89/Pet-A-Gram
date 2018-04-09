@@ -1,0 +1,135 @@
+.nav-container {
+    height: 50px;
+    display: flex;
+    align-items: center;
+    background: deepskyblue;
+    width: 100%;
+    position: fixed;
+    top: 0;
+}
+
+nav a {
+    padding: 10px;
+    color: white;
+    text-decoration: none;
+}
+
+.logo-container {
+    align-self: flex-start;
+}
+
+.nav-logo {
+    height: 50px;
+    width: 50px;
+    align-self: flex-start;
+}
+
+h3 {
+    font-family: 'Hi Melody', cursive;
+    font-size: 2em;
+    text-align: center;
+    border-bottom: dashed 2px black;
+    margin-top: 5%;
+
+}
+
+h1 {
+    font-family: 'Hi Melody', cursive;
+    color: white;
+    /* margin-left: 225px; */
+    font-size: 50px;
+    left: 40%;
+    text-align: center;
+    position: absolute;;
+    top: -50;
+    padding: 0;
+    margin:0;
+}
+
+p {
+    font-family: helvetica, cursive;
+    text-align: center;
+    font-size: 1em;
+}
+
+input [type=text] :focus {
+    border: 3px solid #555;
+}
+
+input {
+    width: 50%;
+    height: 20px;
+}
+
+button {
+    border: 0;
+    background: black;
+    color: white;
+}
+
+button:hover {
+    transition: 0.4s;
+    background-color: green;
+}
+
+.form-container {
+    text-align: center;
+}
+.login-container {
+    width: 75%;
+    align-items: center;
+    margin-top: 3%;
+}
+
+form {
+    width: 100%;
+}
+
+.description-container {
+}
+
+.info-container {
+    width: 75%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin: 0 auto;
+}
+
+.signup-container {
+    width: 75%;
+    align-items: center;
+    text-align: center;
+}
+
+.welcome-msg {
+    color: black;
+    margin: 0 auto;
+    font-family: "Hi Melody", cursive;
+    font-size: 50px;
+}
+
+.logout-profile-btns {
+    text-align: center;
+}
+
+.logout-btn:hover {
+    transition: 0.4s;
+    background-color: red;
+}
+
+#image-feed {
+    margin-top: 5%;
+    border: red 2px solid;
+}
+
+#profile-img {
+    width: 50px;
+    height: 50px;
+    object-fit: contain;
+}
+
+.profile-credentials {
+    border: solid blue 1px;
+    width: 15%;
+}

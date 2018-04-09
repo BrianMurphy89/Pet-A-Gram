@@ -18,8 +18,10 @@
   },
   "homepage": "https://github.com/BrianMurphy89/Pet-A-Gram#readme",
   "dependencies": {
+    "bcrypt": "^1.0.3",
     "express": "^4.16.3",
     "express-session": "^1.15.6",
-    "mongoose": "^5.0.12"
+    "mongoose": "^5.0.12",
+    "morgan": "^1.9.0"
   }
 }
