@@ -13,7 +13,6 @@ app.controller('mainController', ['$http', function($http){
     this.showSignUp = () => {
         this.currentPage = 'signup';
     }
-
     this.showProfile = () => {
         this.currentPage = 'profile';
     }
