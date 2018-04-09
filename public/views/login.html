@@ -27,7 +27,7 @@
 </div>
 
 <div ng-if="!ctrl.loggedInUsername">
-    <p> Don't have an account? <a href="/signup">Sign up</a></p>
+    <p> Don't have an account? <a ng-click="ctrl.showSignUp()" href="#">Sign up</a></p>
 </div>
 
     <div ng-if="ctrl.loggedInUsername" class="logout-profile-btns">

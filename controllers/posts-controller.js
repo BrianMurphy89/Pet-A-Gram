@@ -28,5 +28,15 @@ router.post('/', (req,res)=>{
     });
 });
 
+router.delete('/:id', (req,res)=>{
+    Post.findByIdAndRemove(req.params.id, (err,foundPost)=>{
+        Pet.findOne({'Pet._id':req.params.id}, (err,foundPet)=>{
+            foundPet.posts.id(req.params.id).remove();
+            foundPet.save((err,data)=>{
+                res.json(foundPet);
+            });
+        });
+    });
+});
 
 module.exports = router;

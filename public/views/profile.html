@@ -1,7 +1,8 @@
 
 
 <!-- make a new post -->
-    <h4>{{ctrl.loggedInUsername}}</h4>
+
+    <h4>{{ctrl.user.username}}</h4>
     <img ng-src="{{ctrl.user.profileImg}}">
     <h4>{{ctrl.user.name}}</h4>
     <p>{{ctrl.user.description}}</p>
@@ -9,40 +10,37 @@
     <div class="new-post-container">
     <h4>Create New Post</h4>
     <form ng-submit="ctrl.createPost(ctrl.petId)">
-        <!-- <select>
-            <option ng-model="ctrl.petId">{{ctrl.petId}}<option>
-        </select> -->
             <label for="image">Image URL:</label><br>
             <input id="image" type="text" ng-model="ctrl.formDataPosts.image"><br>
             <label for="caption">Caption:</label><br>
             <input id ="caption" type="text" ng-model="ctrl.formDataPosts.caption"><br>
             <button type="submit">Submit</button>
-
     </form>
     </div>
+        <button ng-click="ctrl.deletePet(ctrl.petId)">Delete Profile</button>
+
 
     <div ng-repeat="post in ctrl.user.posts">
         <img ng-src="{{post.image}}">
         <p>{{post.caption}}</p>
+        <button ng-click="ctrl.deletePost(post._id)">Delete Post</button>
     </div>
 
-<!-- ===== Edit Pet Modal ======= -->
-<!-- <div ng-repeat="pet in ctrl.allPets">
-<div class="modal edit">
-    <form ng-if="$index === ctrl.indexOfEditFormToShow" ng-submit="ctrl.editPet(pet)">
-        <label for="name">Name</label><br>
-        <input type="text" id="name" ng-model="ctrl.editedName"><br>
+<button ng-click="ctrl.toggleEdit()">Edit Profile</button>
+<div ng-if="ctrl.isEditing">
+        <form ng-submit="ctrl.editPet(ctrl.petId)">
+            <label for="name">Name</label><br>
+            <input type="text" id="name" ng-model="ctrl.editedName"><br>
 
-        <label for="species">Species</label><br>
-        <input type="text" id="species" ng-model="ctrl.editedSpecies"><br>
+            <label for="species">Species</label><br>
+            <input type="text" id="species" ng-model="ctrl.editedSpecies"><br>
 
-        <label for="profileImg">Profile Image URL</label><br>
-        <input type="text" id="profileImg" ng-model="ctrl.editedProfileImg"><br>
+            <label for="profileImg">Profile Image URL</label><br>
+            <input type="text" id="profileImg" ng-model="ctrl.editedProfileImg"><br>
 
-        <label for="description">Description</label><br>
-        <input type="text" id="description" ng-model="ctrl.editedDescription"><br>
+            <label for="description">Description</label><br>
+            <input type="text" id="description" ng-model="ctrl.editedDescription"><br>
 
-        <button type="submit">Submit</button>
-    </form>
-</div>  end Edit Pet Modal -->
-<!-- </div>  end ng-repeat for allPets array -->
+            <button type="submit">Submit</button>
+        </form>
+</div>

@@ -17,6 +17,12 @@ app.controller('mainController', ['$http', function($http){
     this.showProfile = () => {
         this.currentPage = 'profile';
     }
+
+    this.isEditing = false;
+
+    this.toggleEdit = () => {
+        this.isEditing = !this.isEditing;
+    }
     // empty array to store pets in
     this.allPets = [];
 
@@ -59,15 +65,16 @@ app.controller('mainController', ['$http', function($http){
             console.log(res);
             this.formData = {};
             this.allPets.push(res.data);
+            this.showLogin();
         }, error => {
             console.error(error)
         }).catch(err => console.error('Catch ', err));
     } // end createPet();
 
-    this.editPet = ( pet ) => {
+    this.editPet = ( id ) => {
         $http({
             method: 'PUT',
-            url: '/pet-a-gram/' + pet._id,
+            url: '/pet-a-gram/' + id,
             data: {
                 name: this.editedName,
                 species: this.editedSpecies,
@@ -78,6 +85,8 @@ app.controller('mainController', ['$http', function($http){
             console.log(res.data);
             this.indexOfEditFormToShow = null;
             this.getPets();
+            this.getProfilePet();
+            this.toggleEdit();
         }, erorr => {
             console.error(error)
         }).catch(err => console.error('Catch '. err));
@@ -90,11 +99,14 @@ app.controller('mainController', ['$http', function($http){
         }).then( (res)=>{
             const removeByIndex = this.allPets.findIndex(pet => pet._id === id);
             this.allPets.splice(removeByIndex, 1);
+            this.showLogin();
+            this.deleteSession();
+
         }, error => {
             console.error(error);
         }).catch(err => console.error('Catch ', err))
     }
-    this.getPets(); // <---- Load immediately on page load.
+
 
 
     this.isAuthorized = false
@@ -174,7 +186,18 @@ app.controller('mainController', ['$http', function($http){
         })
     }
 
+    this.deletePost = (id) => {
+        console.log(id);
+        $http({
+            method: 'DELETE',
+            url: '/posts/' + id
+        }).then( (res)=>{
+            console.log('DELETED POST');
 
+        })
+    }
+    this.getPets(); // <---- Load immediately on page load.
+    this.getProfilePet();
 }])
 // app.config(['$routeProvider', '$locationProvider', function($routeProvider,$locationProvider){
 //     $locationProvider.html5Mode({enabled:true});

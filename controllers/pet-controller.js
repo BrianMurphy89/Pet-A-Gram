@@ -33,6 +33,7 @@ router.delete('/:id' , (req,res) => {
 //Edit Route
 router.put('/:id' , (req, res) => {
     pet.findByIdAndUpdate(req.params.id, req.body, {new:true} , (err,updatedPet) => {
+        console.log(updatedPet);
         res.json(updatedPet)
     })
 })
