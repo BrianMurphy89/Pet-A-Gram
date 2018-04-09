@@ -145,6 +145,9 @@ app.controller('mainController', ['$http', function($http){
         }).then( (res)=>{
             this.toggleAuthorized;
             this.loggedInUsername = false
+            this.username = '';
+            this.password = '';
+            this.showLogin();
             console.log(this.isAuthorized);
             console.log(res);
             console.log('LOGGED OUT');
