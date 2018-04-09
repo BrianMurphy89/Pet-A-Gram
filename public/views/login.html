@@ -11,31 +11,28 @@
             <p>Donec id elit non mi porta gravida at eget metus. Etiam porta sem malesuada magna mollis euismod. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Nullam quis risus eget urna mollis ornare vel eu leo.Vestibulum id ligula porta felis euismod semper. Curabitur blandit tempus porttitor. Sed posuere consectetur est at lobortis. Sed posuere consectetur est at lobortis. Aenean lacinia bibendum nulla sed consectetur.</p>
     </div>
 
-    <div class="login-container">
-        <div class="form-container">
-            <form ng-submit="session.createSession()">
-                <label for="username-login">Username</label><br>
-                <input type="text" id="username-login" ng-model="session.username"><br>
 
-                <label for="password-login">Password</label><br>
-                <input type="password" id="password-login" ng-model="session.password"><br>
+<div class="login-container">
+<div class="form-container">
+    <form ng-submit="ctrl.createSession()">
+        <label for="username-login">Username</label><br>
+        <input type="text" id="username-login" ng-model="ctrl.username"><br>
+
+        <label for="password-login">Password</label><br>
+        <input type="password" id="password-login" ng-model="ctrl.password"><br>
 
                 <button type="submit" name="button">Sign In</button>
             </form>
-        </div>
     </div>
 </div>
+
 <div>
     <p> Don't have an account? <a href="/signup">Sign up</a></p>
 </div>
 
-    <div ng-if="session.loggedInUsername">
-        <button ng-click="session.deleteSession()" type="submit" name="button">Log Out</button>
-        <h1 >Hello, {{session.loggedInUsername}}</h1>
-        <a href="/home"><button>Go to App</button></a>
+    <div ng-if="ctrl.loggedInUsername">
+        <button ng-click="ctrl.deleteSession()" type="submit" name="button">Log Out</button>
+        <h1 >Hello, {{ctrl.loggedInUsername}}</h1>
+        <button ng-click="ctrl.showProfile()">Go to Profile</button>
     </div>
 
-
-
-
-<!-- </div> -->

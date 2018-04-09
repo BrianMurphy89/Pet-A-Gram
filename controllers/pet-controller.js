@@ -6,6 +6,7 @@ const bcrypt = require('bcrypt');
 //Index Route
 router.get('/', (req,res) => {
     pet.find({}, (err,foundPets) => {
+        console.log(foundPets[0].posts);
         res.json(foundPets);
     })
 })

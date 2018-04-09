@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const Post = require('./posts.js')
 
 const petSchema = new mongoose.Schema({
     username: String,
@@ -7,14 +8,7 @@ const petSchema = new mongoose.Schema({
     species: String,
     profileImg: String,
     description: String,
-    posts: [
-        {
-            image: String,
-            comments: [String],
-            likes: {type: Number, default: 0},
-            location: String
-        }
-    ]
+    posts: [Post.schema]
 });
 
 const Pets = mongoose.model('Pet', petSchema);

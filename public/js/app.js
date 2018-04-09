@@ -3,6 +3,20 @@ const app = angular.module('petApp', ['ngRoute']);
 
 app.controller('mainController', ['$http', function($http){
 
+    this.currentPage = 'login';
+    this.showHome = () => {
+        this.currentPage = 'home';
+    }
+    this.showLogin = () => {
+        this.currentPage = 'login';
+    }
+    this.showSignUp = () => {
+        this.currentPage = 'signup';
+    }
+
+    this.showProfile = () => {
+        this.currentPage = 'profile';
+    }
     // empty array to store pets in
     this.allPets = [];
 
@@ -21,6 +35,20 @@ app.controller('mainController', ['$http', function($http){
             console.error(error);
         }).catch(err => console.error('Catch ', err))
     } // end getPets();
+
+    this.getProfilePet = (id) =>{
+        $http({
+            method: 'GET',
+            url: '/pet-a-gram/' + id
+        }).then( (res) => {
+            this.profilePet = res.data
+            console.log(this.profilePet);
+            console.log('SEE PROFILE');
+        }, error => {
+            console.error(error);
+        }).catch(err => console.error('Catch ', err))
+    }
+
 
     this.createPet = ()=> {
         $http({
@@ -67,13 +95,7 @@ app.controller('mainController', ['$http', function($http){
         }).catch(err => console.error('Catch ', err))
     }
     this.getPets(); // <---- Load immediately on page load.
-}]) // end mainController
 
-// app.config(['$routeProvider', '$locationProvider', function($routerProvider, $locationProvider){
-//     $locationProvider.html5Mode({enabled:true})
-// }])
-
-app.controller('sessionController', ['$http', function($http){
 
     this.isAuthorized = false
 
@@ -91,7 +113,11 @@ app.controller('sessionController', ['$http', function($http){
         }).then( (res)=>{
             console.log('NEW SESSION CREATED!');
             this.loggedInUsername = res.data.username
+            this.user = res.data
+            this.petId = res.data._id
             this.toggleAuthorized()
+            this.getProfilePet(this.petId);
+            console.log(this.petId);
             console.log(this.isAuthorized);
         }, error => {
             console.error(error)
@@ -113,53 +139,73 @@ app.controller('sessionController', ['$http', function($http){
         }).catch(err => console.error('Catch ', err))
     } // end deleteSession();
 
-    this.checkAuth = () => {
+    // this.checkAuth = () => {
+    //     $http({
+    //         method: 'GET',
+    //         url: '/sessions/session'
+    //     }).then( (res)=>{
+    //         if(res.data.user) {
+    //             this.user = res.data.user;
+    //             console.log(this.user);
+    //             this.logged = true;
+    //             this.home = true;
+    //         }
+    //     })
+    // }
+
+
+    // empty array to store posts in
+    this.allPosts = [];
+
+    // empty object to add data from form submission into
+    this.formDataPosts = {};
+
+    this.createPost = (petId) => {
+        this.formDataPosts.petId = petId
+        console.log(this.formDataPosts);
         $http({
-            method: 'GET',
-            url: '/session'
+            method: 'POST',
+            url: '/posts/',
+            data: this.formDataPosts
         }).then( (res)=>{
-            if(res.data.user) {
-                this.user = res.data.user;
-                console.log(this.user);
-                this.logged = true;
-                this.home = true;
-            }
+            console.log(res);
+            this.formDataPosts = {};
+
         })
     }
 
 
-}]) // end sessionController
-
-app.config(['$routeProvider', '$locationProvider', function($routeProvider,$locationProvider){
-    $locationProvider.html5Mode({enabled:true});
-
-    $routeProvider.when('/home', {
-        templateUrl: '/views/home.html',
-        controller: 'mainController',
-        controllerAs: 'ctrl'
-    })
-
-    $routeProvider.when('/login', {
-        templateUrl: '/views/login.html',
-        controller: 'sessionController',
-        controllerAs: 'session'
-    })
-
-    $routeProvider.when('/signup', {
-        templateUrl: '/views/signup.html',
-        controller: 'mainController',
-        controllerAs: 'ctrl'
-    })
-
-    $routeProvider.when('/profile', {
-        templateUrl: '/views/profile.html',
-        controller: 'mainController',
-        controllerAs: 'ctrl'
-    })
-
-    $routeProvider.when('/welcome', {
-        templateUrl: '/views/welcome.html',
-        controller: 'sessionController',
-        controllerAs: 'session'
-    })
 }])
+// app.config(['$routeProvider', '$locationProvider', function($routeProvider,$locationProvider){
+//     $locationProvider.html5Mode({enabled:true});
+//
+//     $routeProvider.when('/home', {
+//         templateUrl: '/views/home.html',
+//         controller: 'mainController',
+//         controllerAs: 'ctrl'
+//     })
+//
+//     $routeProvider.when('/login', {
+//         templateUrl: '/views/login.html',
+//         controller: 'mainController',
+//         controllerAs: 'ctrl'
+//     })
+//
+//     $routeProvider.when('/signup', {
+//         templateUrl: '/views/signup.html',
+//         controller: 'mainController',
+//         controllerAs: 'ctrl'
+//     })
+//
+//     $routeProvider.when('/profile', {
+//         templateUrl: '/views/profile.html',
+//         controller: 'mainController',
+//         controllerAs: 'ctrl'
+//     })
+//
+//     $routeProvider.when('/welcome', {
+//         templateUrl: '/views/welcome.html',
+//         controller: 'mainController',
+//         controllerAs: 'ctrl'
+//     })
+// }])

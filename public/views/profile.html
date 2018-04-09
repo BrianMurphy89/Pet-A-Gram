@@ -1,8 +1,33 @@
+
+
+<!-- make a new post -->
+    <h4>{{ctrl.loggedInUsername}}</h4>
+    <img ng-src="{{ctrl.user.profileImg}}">
+    <h4>{{ctrl.user.name}}</h4>
+    <p>{{ctrl.user.description}}</p>
+
+    <div class="new-post-container">
+    <h4>Create New Post</h4>
+    <form ng-submit="ctrl.createPost(ctrl.petId)">
+        <!-- <select>
+            <option ng-model="ctrl.petId">{{ctrl.petId}}<option>
+        </select> -->
+            <label for="image">Image URL:</label><br>
+            <input id="image" type="text" ng-model="ctrl.formDataPosts.image"><br>
+            <label for="caption">Caption:</label><br>
+            <input id ="caption" type="text" ng-model="ctrl.formDataPosts.caption"><br>
+            <button type="submit">Submit</button>
+
+    </form>
+    </div>
+
+    <div ng-repeat="post in ctrl.user.posts">
+        <img ng-src="{{post.image}}">
+        <p>{{post.caption}}</p>
+    </div>
+
 <!-- ===== Edit Pet Modal ======= -->
-{{ 2 + 2}}
-
-
-<div ng-repeat="pet in ctrl.allPets">
+<!-- <div ng-repeat="pet in ctrl.allPets">
 <div class="modal edit">
     <form ng-if="$index === ctrl.indexOfEditFormToShow" ng-submit="ctrl.editPet(pet)">
         <label for="name">Name</label><br>
@@ -19,5 +44,5 @@
 
         <button type="submit">Submit</button>
     </form>
-</div> <!-- end Edit Pet Modal -->
-</div> <!-- end ng-repeat for allPets array -->
+</div>  end Edit Pet Modal -->
+<!-- </div>  end ng-repeat for allPets array --> -->

@@ -25,13 +25,13 @@ router.post('/login' , (req,res) => {
                     message:'Login Failed'
                 })
         }
-        console.log(req.session);
-        console.log(req.session.currentuser)
+        // console.log(req.session);
+        // console.log(req.session.currentuser)
     });
 });
 
 router.delete('/destroy-route', (req,res)=>{
-    console.log(req.session.currentuser);
+    // console.log(req.session.currentuser);
 
     req.session.destroy( ()=> {
         res.status(200).json({
