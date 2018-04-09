@@ -14,7 +14,7 @@
 
 <div class="login-container">
 <div class="form-container">
-    <form ng-submit="ctrl.createSession()">
+    <form ng-submit="ctrl.createSession()" ng-if="!ctrl.loggedInUsername">
         <label for="username-login">Username</label><br>
         <input type="text" id="username-login" ng-model="ctrl.username"><br>
 
@@ -26,13 +26,12 @@
     </div>
 </div>
 
-<div>
+<div ng-if="!ctrl.loggedInUsername">
     <p> Don't have an account? <a href="/signup">Sign up</a></p>
 </div>
 
-    <div ng-if="ctrl.loggedInUsername">
-        <button ng-click="ctrl.deleteSession()" type="submit" name="button">Log Out</button>
-        <h1 >Hello, {{ctrl.loggedInUsername}}</h1>
+    <div ng-if="ctrl.loggedInUsername" class="logout-profile-btns">
+        <h2 class="welcome-msg">Hello, {{ctrl.loggedInUsername}}</h2>
+        <button ng-click="ctrl.deleteSession()" type="submit" name="button" class="logout-btn">Log Out</button>
         <button ng-click="ctrl.showProfile()">Go to Profile</button>
     </div>
-
