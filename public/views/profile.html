@@ -1,14 +1,35 @@
 
 
 <!-- make a new post -->
-
+<div class="profile-info">
+    <div class="profile-page-img">
+        <img ng-src="{{ctrl.user.profileImg}}">
+    </div>
     <h4>{{ctrl.user.username}}</h4>
-    <img ng-src="{{ctrl.user.profileImg}}">
     <h4>{{ctrl.user.name}}</h4>
-    <p>{{ctrl.user.description}}</p>
+    <p class="profile-description">{{ctrl.user.description}}</p>
+    <button ng-click="ctrl.deletePet(ctrl.petId)" class="delete-profile-btn">Delete Profile</button>
+    <button ng-click="ctrl.toggleEdit()" class="edit-profile-btn">Edit Profile</button>
+</div>
+    <div ng-if="ctrl.isEditing">
+            <form ng-submit="ctrl.editPet(ctrl.petId)">
+                <label for="name">Name</label><br>
+                <input type="text" id="name" ng-model="ctrl.editedName"><br>
 
+                <label for="species">Species</label><br>
+                <input type="text" id="species" ng-model="ctrl.editedSpecies"><br>
+
+                <label for="profileImg">Profile Image URL</label><br>
+                <input type="text" id="profileImg" ng-model="ctrl.editedProfileImg"><br>
+
+                <label for="description">Description</label><br>
+                <input type="text" id="description" ng-model="ctrl.editedDescription"><br>
+
+                <button type="submit">Submit</button>
+            </form>
+    </div>
     <div class="new-post-container">
-    <h4>Create New Post</h4>
+    <h5>Create New Post</h5>
     <form ng-submit="ctrl.createPost(ctrl.petId)">
             <label for="image">Image URL:</label><br>
             <input id="image" type="text" ng-model="ctrl.formDataPosts.image"><br>
@@ -17,16 +38,14 @@
             <button type="submit">Submit</button>
     </form>
     </div>
-        <button ng-click="ctrl.deletePet(ctrl.petId)">Delete Profile</button>
 
-
-    <div ng-repeat="post in ctrl.user.posts">
-        <img ng-src="{{post.image}}">
+    <div ng-repeat="post in ctrl.user.posts" id="profile-post-container">
+        <img ng-src="{{post.image}}" id="profile-posts">
         <p>{{post.caption}}</p>
-        <button ng-click="ctrl.deletePost(post._id)">Delete Post</button>
+        <button ng-click="ctrl.deletePost(post._id)" class="delete-post-btn">Delete Post</button>
     </div>
 
-<button ng-click="ctrl.toggleEdit()">Edit Profile</button>
+<!-- <button ng-click="ctrl.toggleEdit()">Edit Profile</button>
 <div ng-if="ctrl.isEditing">
         <form ng-submit="ctrl.editPet(ctrl.petId)">
             <label for="name">Name</label><br>
@@ -43,4 +62,4 @@
 
             <button type="submit">Submit</button>
         </form>
-</div>
+</div> -->

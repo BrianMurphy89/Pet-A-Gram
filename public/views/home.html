@@ -1,15 +1,20 @@
 
 
 <div ng-repeat="pet in ctrl.allPets" id="image-feed">
-    <div class="post-card">
+    <!-- <div class="post-card"> -->
             <div class="profile-credentials">
                 <img ng-src="{{pet.profileImg}}" id="profile-img"> <!-- small profile image -->
-                <h4>{{pet.username}}<h4>
-                <h4>{{pet.name}}</h4>
+                <div class="username-petname">
+                    <h4>{{pet.username}}<h4>
+                    <h4>{{pet.name}}</h4>
+                </div>
             </div>
-        <img ng-repeat="post in pet.posts" ng-src="{{post.image}}"> <!-- larger main image -->
+            <div class="image-container">
+                <img ng-src="{{pet.posts[0].image}}" id="post-img"> <!-- larger main image -->
+            </div>
 
         <!-- <button ng-click="ctrl.deletePet(pet._id)">DELETE</button>
         <button ng-click="ctrl.indexOfEditFormToShow === $index ? ctrl.indexOfEditFormToShow = null : ctrl.indexOfEditFormToShow = $index">Edit</button>
     </div> -->
-</div> <!-- end ng-repeat for allPets array -->
+ <!-- end ng-repeat for allPets array -->
+</div>
