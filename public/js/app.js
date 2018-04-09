@@ -187,7 +187,8 @@ app.controller('mainController', ['$http', function($http){
         }).then( (res)=>{
             console.log(res);
             this.formDataPosts = {};
-
+            this.getPets();
+            this.getProfilePet();
         })
     }
 
