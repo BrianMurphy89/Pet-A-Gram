@@ -4,15 +4,16 @@
 <!-- <div ng-controller="sessionController as session"> -->
     <!-- User Log In -->
 
-<h1>Petagram</h1>
 
-<div class="info-container">
     <h3>About</h3>
-    <p>Donec id elit non mi porta gravida at eget metus. Etiam porta sem malesuada magna mollis euismod. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Nullam quis risus eget urna mollis ornare vel eu leo.Vestibulum id ligula porta felis euismod semper. Curabitur blandit tempus porttitor. Sed posuere consectetur est at lobortis. Sed posuere consectetur est at lobortis. Aenean lacinia bibendum nulla sed consectetur.</p>
-</div>
+    <div class="info-container">
+        <div class="description-container">
+            <p>Donec id elit non mi porta gravida at eget metus. Etiam porta sem malesuada magna mollis euismod. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Nullam quis risus eget urna mollis ornare vel eu leo.Vestibulum id ligula porta felis euismod semper. Curabitur blandit tempus porttitor. Sed posuere consectetur est at lobortis. Sed posuere consectetur est at lobortis. Aenean lacinia bibendum nulla sed consectetur.</p>
+    </div>
+
 
 <div class="login-container">
-<div>
+<div class="form-container">
     <form ng-submit="ctrl.createSession()">
         <label for="username-login">Username</label><br>
         <input type="text" id="username-login" ng-model="ctrl.username"><br>
@@ -20,8 +21,9 @@
         <label for="password-login">Password</label><br>
         <input type="password" id="password-login" ng-model="ctrl.password"><br>
 
-        <button type="submit" name="button">Sign In</button>
-    </form>
+                <button type="submit" name="button">Sign In</button>
+            </form>
+    </div>
 </div>
 
 <div>
@@ -33,8 +35,4 @@
         <h1 >Hello, {{ctrl.loggedInUsername}}</h1>
         <button ng-click="ctrl.showProfile()">Go to Profile</button>
     </div>
-</div>
 
-
-
-<!-- </div> -->

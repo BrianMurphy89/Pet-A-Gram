@@ -4,29 +4,36 @@
         <meta charset="utf-8">
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular-route.min.js"></script>
+        <link href="https://fonts.googleapis.com/css?family=Hi+Melody" rel="stylesheet">
+        <link rel="stylesheet" href="/css/style.css">
         <base href="/" target="_blank">
         <script src="/js/app.js" charset="utf-8"></script>
         <base href="/">
         <title></title>
     </head>
     <body ng-controller="mainController as ctrl">
-    <nav>
+    
+    <div class="nav-container">
+        <div class="logo-container">
+          <img src="http://thechurchontheway.org/wp-content/uploads/2016/05/placeholder1.png" alt="Pet-A-Gram Logo" class="nav-logo">
+        </div>
+     <div class="link-container">
+     <nav>
         <a ng-if="ctrl.loggedInUsername" ng-click="ctrl.showHome()" href="#">Home</a>
         <a ng-click="ctrl.showLogin()" href="#">Login</a>
         <a ng-click="ctrl.showSignUp()" href="#">Sign Up</a>
         <a ng-if="ctrl.loggedInUsername" ng-click="ctrl.showProfile()" href="#">Profile</a>
         <a ng-if="ctrl.loggedInUsername" ng-click="ctrl.deleteSession()" href="#">Log Out</a>
     </nav>
-
+    </div>
+    <h1>Pet-A-Gram</h1>
+    </div>
     <div ng-if="ctrl.currentPage === 'home'" ng-include="'views/home.html'"></div>
     <div ng-if="ctrl.currentPage === 'login'"ng-include="'views/login.html'"></div>
     <div ng-if="ctrl.currentPage === 'signup'"ng-include="'views/signup.html'"></div>
     <div ng-if="ctrl.currentPage === 'profile'"ng-include="'views/profile.html'"></div>
-
-
-
-
-
+  
+    
     <div ng-view></div>
 
     </body>
