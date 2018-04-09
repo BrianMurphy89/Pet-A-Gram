@@ -56,7 +56,8 @@ input [type=text] :focus {
 }
 
 input {
-    width: 25%;
+    width: 50%;
+    height: 20px;
 }
 
 button {
@@ -71,13 +72,12 @@ button:hover {
 }
 
 .form-container {
-    border: red 1px solid;
     text-align: center;
 }
 .login-container {
-    border: solid blue 1px;
     width: 75%;
     align-items: center;
+    margin-top: 3%;
 }
 
 form {
@@ -85,11 +85,9 @@ form {
 }
 
 .description-container {
-    border: green 1px solid;
 }
 
 .info-container {
-    border: solid yellow 3px;
     width: 75%;
     display: flex;
     align-items: center;
