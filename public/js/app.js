@@ -66,6 +66,7 @@ app.controller('mainController', ['$http', function($http){
             this.formData = {};
             this.allPets.push(res.data);
             this.showLogin();
+            this.getPets();
         }, error => {
             console.error(error)
         }).catch(err => console.error('Catch ', err));
@@ -128,9 +129,11 @@ app.controller('mainController', ['$http', function($http){
             this.user = res.data
             this.petId = res.data._id
             this.toggleAuthorized()
+            this.getPets();
             this.getProfilePet(this.petId);
             console.log(this.petId);
             console.log(this.isAuthorized);
+
         }, error => {
             console.error(error)
         }).catch(err => console.error('Catch ', err))
@@ -196,8 +199,8 @@ app.controller('mainController', ['$http', function($http){
 
         })
     }
-    this.getPets(); // <---- Load immediately on page load.
-    this.getProfilePet();
+    // this.getPets(); // <---- Load immediately on page load.
+    // this.getProfilePet();
 }])
 // app.config(['$routeProvider', '$locationProvider', function($routeProvider,$locationProvider){
 //     $locationProvider.html5Mode({enabled:true});

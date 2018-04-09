@@ -3,7 +3,7 @@ const app = express();
 const mongoose = require('mongoose');
 const session = require('express-session')
 const morgan = require('morgan')
-
+const port = process.env.PORT || 3000;
 
 app.use(express.urlencoded({extended:false}));
 app.use(express.static('public'));
@@ -25,11 +25,11 @@ app.use('/sessions', sessionController);
 const postController = require('./controllers/posts-controller.js');
 app.use('/posts', postController);
 
-
-mongoose.connect('mongodb://localhost:27017/petagram');
+const mongoUri = process.env.MONGODB_URI || 'mongodb://localhost:27017/petagram';
+mongoose.connect(mongoUri)
 mongoose.connection.once('open', () => {
     console.log('The God is listening');
 })
-app.listen(3000, () => {
+app.listen(port, () => {
     console.log('Terminal is listening');
 })
